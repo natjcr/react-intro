@@ -1,6 +1,9 @@
+import './TodoSearch.css'
+
 function TodoSearch() {
     return(
-      <input placeholder='Tareas Pendientes' />
+      <input className='TodoSearch'
+      placeholder='Tareas Pendientes' />
     );
   }
 

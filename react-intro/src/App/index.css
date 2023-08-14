@@ -1,0 +1,14 @@
+body{
+  margin:0;
+  padding:0;
+  background: rgba(43, 26, 43, 1.0);
+  background: linear-gradient(135deg, rgba(43, 26, 43, 1.0), rgba(185, 178, 231, 1.0));
+  color:#1e1e1f;
+  font-family:'Mukta',Arial,Helvetica,sans-serif
+}
+  
+#root{
+  margin:0 24px;
+  position:relative;
+  min-height:100vh
+}
