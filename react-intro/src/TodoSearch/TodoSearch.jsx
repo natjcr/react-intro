@@ -1,11 +1,8 @@
 import React from 'react';
 import './TodoSearch.css'
 
-function TodoSearch() { //estado inmutable
-  const [searchValue, setSearchValue] = React.useState('');
-
-  console.log('usuarios buscan ' + searchValue)
-
+function TodoSearch({ searchValue, setSearchValue }) { //estado inmutable
+  
     return(
       <input className='TodoSearch'
         placeholder='Tareas Pendientes' 
