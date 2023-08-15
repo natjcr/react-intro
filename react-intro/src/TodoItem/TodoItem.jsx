@@ -1,4 +1,6 @@
-import './TodoItem.css'
+import './TodoItem.css';
+import { BsJournalCheck } from 'react-icons/bs';
+import { MdAutoDelete } from 'react-icons/md';
 
 function TodoItem(props) {
     return(
@@ -6,13 +8,13 @@ function TodoItem(props) {
         <span className={`Icon Icon-check 
           ${props.completed && 'Icon-check--active'}`}
           onClick={props.onComplete}>
-          V
+          <BsJournalCheck />
         </span>
         <p className={`TodoItem-p 
           ${props.completed && 'TodoItem-p--complete'}`}>
           {props.text}</p>
         <span className='Icon Icon-delete'
-          onClick={props.onDelete}>X
+          onClick={props.onDelete}><MdAutoDelete />
         </span>
       </li>
     );

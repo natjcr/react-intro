@@ -9,6 +9,7 @@
     box-shadow: 0px 5px 50px rgba(32, 35, 41, 0.15);
     font-family: 'PT Serif', serif;
     color: white;
+    border-radius: 15px;
   }
   
   .TodoItem-p {
@@ -39,7 +40,7 @@
     left: 12px;
   }
   .Icon-check--active {
-    color: #4caf50;
+    color: #10878f;
   }
   
   .Icon-delete {
@@ -48,5 +49,5 @@
     right: 0;
   }
   .Icon-delete:hover {
-    color: red;
+    color: rgb(126, 171, 223);
   }
