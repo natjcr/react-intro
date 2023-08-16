@@ -5,18 +5,22 @@ import { TodoItem } from '../TodoItem/TodoItem';
 import { TodoList } from '../TodoList/TodoList';
 import { TodoSearch } from '../TodoSearch/TodoSearch';
 
-
-const defaultTodos = [
+/* const defaultTodos = [
   { text: 'leer', completed:true },
   { text: 'Estudiar', completed:false },
   { text: 'Aprender terminos gastronomicos', completed:false },
   { text: 'Hacer lo de cátedra', completed:false },
   { text: 'Sacar a Merlín', completed:false },
-]
+] */
 
+/* localStorage.setItem('TODOS_V1', defaultTodos)
+localStorage.removeItem('TODOS_V1') */
 
 function App() {
-  const [todos, setTodos] = React.useState(defaultTodos);
+  const localStorageTodos = localStorage.getItem('TODOS_V1');
+  let parsedTodos = JSON.parse(localStorageTodos);
+
+  const [todos, setTodos] = React.useState(parsedTodos);
   const [searchValue, setSearchValue] = React.useState('');
 
   const completedTodos = todos.filter(todo => !!todo.completed).length;
