@@ -1,32 +1,49 @@
+import React from 'react';
 import './TodoItem.css';
-import { BsJournalCheck } from 'react-icons/bs';
-import { MdAutoDelete } from 'react-icons/md';
+import { CompleteIcon } from './CompleteIcon';
+import { DeleteIcon } from './DeleteIcon';
 
-function TodoItem(props) {
-    return(
-      <li className='TodoItem'>
-        <span className={`Icon Icon-check 
-          ${props.completed && 'Icon-check--active'}`}
-          onClick={props.onComplete}
-          completed={props.completed}
-          onComplete={props.onComplete}
-          >
-            <BsJournalCheck />
-        </span>
 
-        <p className={`TodoItem-p 
-          ${props.completed && 'TodoItem-p--complete'}`}>
-          {props.text}</p>
+function TodoItem (props) {
+  const { onComplete , onDelete} = props;
 
-        <span className='Icon Icon-delete'
-          onClick={props.onDelete}
-          completed={props.completed}
-          onComplete={props.onComplete}
-          >
-            <MdAutoDelete />
-        </span>
-      </li>
-    );
+  return (
+    <li className='TodoItem'>
+      <CompleteIcon 
+        onClick={onComplete}
+      />
+      <p className={`TodoItem-p 
+        ${props.completed && 'TodoItem-p--complete'}`}>
+        {props.text}
+      </p>
+      <DeleteIcon 
+        onClick={onDelete}
+      />
+    </li>
+  )
+    
   }
 
+
+/*   return(
+    <li className='TodoItem'>
+      <span className={`Icon Icon-check 
+        ${props.completed && 'Icon-check--active'}`}
+        completed={props.completed}
+        onComplete={props.onComplete}
+        >
+          <BsJournalCheck />
+      </span>
+
+      <p className={`TodoItem-p 
+        ${props.completed && 'TodoItem-p--complete'}`}>
+        {props.text}</p>
+
+      <span className='Icon Icon-delete'
+        onDelete={props.onDelete}
+        >
+          <MdAutoDelete />
+      </span>
+    </li>
+  ); */
   export { TodoItem }

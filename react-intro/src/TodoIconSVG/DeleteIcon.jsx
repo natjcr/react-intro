@@ -1,5 +1,5 @@
 import React from 'react';
-import{TodoIcon}from './TodoIcon';
+import { TodoIcon } from './TodoIcon';
 
 function DeleteIcon({onDelete}) {
    return(
@@ -7,7 +7,8 @@ function DeleteIcon({onDelete}) {
         type="delete"
         color="gray"
         onClick={onDelete}
-    />);}
+    />);
+}
     
     
-export{DeleteIcon};
+export{ DeleteIcon };
