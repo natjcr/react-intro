@@ -1,36 +1,35 @@
 import { CreateTodoButton } from '../CreateTodoButton/CreateTodoButton';
+import { EmptyTodos } from '../EmptyTodos/EmptyTodos';
+import { TodoContext } from '../TodoContext/TodoContext';
 import { TodoCounter } from '../TodoCounter/TodoCounter';
 import { TodoItem } from '../TodoItem/TodoItem';
 import { TodoList } from '../TodoList/TodoList';
 import { TodoSearch } from '../TodoSearch/TodoSearch';
+import { TodosError } from '../TodosError/TodosError';
+import { TodosLoading } from '../TodosLoading/TodosLoading';
+import './index.css'
 
-function AppUI({
-    loading,
-    error,
-    completedTodos,
-    totalTodos,
-    searchValue,
-    setSearchValue,
-    searchedTodos,
-    completeTodo,
-    deleteTodo,
-}) {
+
+
+function AppUI() {
     return (
         <>
-          <TodoCounter
-            completed={completedTodos}
-            total={totalTodos} 
-          />
-          <TodoSearch
-            searchValue={searchValue}
-            setSearchValue={setSearchValue}
-          />
+          <TodoCounter />
+          <TodoSearch />
     
-          <TodoList>
-            {loading && <p>Cargando...</p>}
-            {error && <p>Tienes un Error...</p>}
-            {(!loading && searchedTodos.length === 0) &&
-            <p>Crea tu primer TODO!!!</p>}
+          <TodoContext.Consumer>
+            {({
+              loading,
+              error,
+              searchedTodos,
+              completeTodo,
+              deleteTodo
+            }) => (
+              <TodoList>
+              {loading && <TodosLoading />}
+              {error && <TodosError />}
+              {(!loading && searchedTodos.length === 0) &&
+              <EmptyTodos />}
 
             {searchedTodos.map(todo => (
               <TodoItem
@@ -41,7 +40,11 @@ function AppUI({
                 onDelete={() => deleteTodo(todo.text)}
               />
             ))}
-          </TodoList>
+            </TodoList>
+            )}
+          </TodoContext.Consumer>
+
+          
           
           <CreateTodoButton />
         </>
