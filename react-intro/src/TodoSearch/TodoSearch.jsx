@@ -1,7 +1,11 @@
 import React from 'react';
 import './TodoSearch.css'
+import { TodoContext } from '../TodoContext/TodoContext';
 
-function TodoSearch({ searchValue, setSearchValue }) { //estado inmutable
+function TodoSearch() { //estado inmutable
+  const {
+    searchValue, setSearchValue
+  }= React.useContext(TodoContext);
   
     return(
       <input className='TodoSearch'

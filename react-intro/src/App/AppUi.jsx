@@ -1,3 +1,4 @@
+import React from 'react';
 import { CreateTodoButton } from '../CreateTodoButton/CreateTodoButton';
 import { EmptyTodos } from '../EmptyTodos/EmptyTodos';
 import { TodoContext } from '../TodoContext/TodoContext';
@@ -7,25 +8,28 @@ import { TodoList } from '../TodoList/TodoList';
 import { TodoSearch } from '../TodoSearch/TodoSearch';
 import { TodosError } from '../TodosError/TodosError';
 import { TodosLoading } from '../TodosLoading/TodosLoading';
+import { Modal } from '../OpenModal/OpenModal';
+import { TodoForm } from '../TodoForm/TodoForm';
 import './index.css'
 
 
-
 function AppUI() {
+  const  {
+    loading,
+    error,
+    searchedTodos,
+    completeTodo,
+    deleteTodo,
+    openModal,
+    setOpenModal, 
+  } = React.useContext(TodoContext);
+
     return (
         <>
           <TodoCounter />
           <TodoSearch />
-    
-          <TodoContext.Consumer>
-            {({
-              loading,
-              error,
-              searchedTodos,
-              completeTodo,
-              deleteTodo
-            }) => (
-              <TodoList>
+  
+            <TodoList>
               {loading && <TodosLoading />}
               {error && <TodosError />}
               {(!loading && searchedTodos.length === 0) &&
@@ -39,14 +43,18 @@ function AppUI() {
                 onComplete={() => completeTodo(todo.text)}
                 onDelete={() => deleteTodo(todo.text)}
               />
-            ))}
+              ))}
             </TodoList>
-            )}
-          </TodoContext.Consumer>
 
-          
-          
-          <CreateTodoButton />
+          <CreateTodoButton 
+            setOpenModal={setOpenModal}
+          />
+
+          {openModal && (
+            <Modal>
+              <TodoForm />
+            </Modal>
+          )}
         </>
       );
 }
