@@ -10,6 +10,7 @@ function TodoItem (props) {
   return (
     <li className='TodoItem'>
       <CompleteIcon 
+        completed={props.completed} 
         onClick={onComplete}
       />
       <p className={`TodoItem-p 
