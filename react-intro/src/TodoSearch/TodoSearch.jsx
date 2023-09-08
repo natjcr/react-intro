@@ -3,7 +3,7 @@ import './TodoSearch.css'
 
 
 function TodoSearch({
-  searchValue, setSearchValue}) { //estado inmutable
+  searchValue, setSearchValue, loading}) { //estado inmutable
   const onSearchValueChange = (event) => {
     setSearchValue(event.target.value)
     console.log(event.target.value)
@@ -14,6 +14,7 @@ function TodoSearch({
         placeholder='Tareas Pendientes' 
         value={searchValue}
         onChange={onSearchValueChange}
+        disabled={loading}
       />
     );
   }
