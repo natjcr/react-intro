@@ -21,3 +21,11 @@ body{
   font-family: 'Roboto Mono', monospace;
   color: white;
 }
+.resultados {
+  font-size: 35px;  
+  text-align: center;
+  margin: auto;
+  margin-top: 90px;
+  font-family: 'Roboto Mono', monospace;
+  color: white;
+}

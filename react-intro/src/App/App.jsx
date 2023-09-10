@@ -53,7 +53,7 @@ function App() {
       onLoading={() => <TodosLoading />}
       onEmptyTodos={() => <EmptyTodos />}
       onEmptySearchResults={
-        (searchText) => <p>No Hay Resultados para {searchText}</p>
+        (searchText) => <p className='resultados'>No Hay Resultados para {searchText}</p>
       }
       render={todo => 
         <TodoItem
