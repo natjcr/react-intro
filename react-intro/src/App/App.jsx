@@ -11,7 +11,7 @@ import { TodosLoading } from '../TodosLoading/TodosLoading';
 import { Modal } from '../OpenModal/OpenModal';
 import { TodoForm } from '../TodoForm/TodoForm';
 import { useTodos } from './useTodos';
-import { ChangeAlertWithStorageListener } from '../ChangeAlert/changealert';
+import { ChangeAlert } from '../ChangeAlert/changealert';
 import './index.css'
 
 
@@ -82,7 +82,7 @@ function App() {
         setOpenModal={setOpenModal}
       />
 
-      <ChangeAlertWithStorageListener
+      <ChangeAlert
         sincronize={sincronizeTodos}
       />
     </>
