@@ -14,8 +14,6 @@ import { useTodos } from './useTodos';
 import { ChangeAlert } from '../ChangeAlert/changealert';
 import './index.css'
 
-
-
 function App() {  
   const  {
     loading,
